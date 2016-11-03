@@ -1,0 +1,11 @@
+<% @posts.each do |post|%>
+  <%= link_to post.author.full_name, user_path(post.author) %>
+  <%= post.body %>
+  <% if post.likers.include?(current_user)%>
+    <%= "You liked this post"%>
+  <% else %>
+    <%= link_to 'Like', like_path(post), method: :post %>
+  <%  end %>
+  <%=post.likers.count %>
+
+<% end %>

@@ -1,0 +1,17 @@
+<p><%=link_to @post.author.full_name, user_path(@post.author) %></p>
+<p><%= @post.body %> </p>
+
+<%if @comments %>
+  <%=render partial:'comments/comment', collection: @comments%>
+<% end %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <%@comment.errors.full_messages.each do |message| %>
+      <p><%=message%></p>
+    <%end%>
+  <% end %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit "Comment" %>
+<% end %>

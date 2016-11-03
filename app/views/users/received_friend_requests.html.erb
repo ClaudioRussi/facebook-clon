@@ -1,0 +1,4 @@
+<h2>  Friend requests received </h2>
+<% @requests.each do |request| %>
+  <p><%= request.sender.full_name %> <%=button_to 'Confirm friend request', confirm_path(request.sender) %></p>
+<%end %>

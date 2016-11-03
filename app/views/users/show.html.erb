@@ -1,0 +1,4 @@
+<h2>@user.name</h2>
+<p>
+    <%= button_to 'Send friend request', {:controller => "friend_requests", :action => "create", :sender_id => current_user.id, :receiver_id=> @user.id} , {:method=>:post}  %>
+</p>
